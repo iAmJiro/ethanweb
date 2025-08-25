@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function Home() {
   const features = [
@@ -38,19 +39,26 @@ function Home() {
         >
           <div className="absolute w-full h-full bg-black opacity-60"></div>
         </div>
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <motion.div
+          className="relative z-10 container mx-auto px-4 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h1 className="text-5xl font-bold text-white">
             Your story starts with us.
           </h1>
           <p className="mt-4 text-lg text-white max-w-2xl mx-auto">
             We’re here to take the stress out of property upkeep so you can
             focus on the bigger picture. Whether it’s a quick repair or ongoing
-            maintenance, EGH Construction is the team you can count on.
+            maintenance.
           </p>
-          <button className="mt-8 px-6 py-3 bg-white text-white font-semibold rounded-full shadow hover:bg-gray-200 transition duration-200">
-            Get Started
-          </button>
-        </div>
+          <a href="contact">
+            <button className="mt-8 px-6 py-3 bg-white text-white font-semibold rounded-full shadow hover:bg-gray-200 transition duration-200">
+              Get Started
+            </button>
+          </a>
+        </motion.div>
       </section>
 
       {/* Features Section */}
@@ -58,9 +66,13 @@ function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-y-12">
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="w-full md:w-3/12 px-4 text-center flex justify-center"
+                className="w-full md:w-3/12 px-4 text-center flex justify-center z-20"
+                initial={{ opacity: 0, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
               >
                 <div className="bg-white text-black shadow-lg rounded-lg p-6 w-full max-w-sm">
                   <div className="p-3 inline-flex items-center justify-center w-12 h-12 mb-5 rounded-full bg-[#C79134] text-white">
@@ -71,7 +83,7 @@ function Home() {
                   </h3>
                   <p className="text-base">{feature.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -106,9 +118,13 @@ function Home() {
                 "https://bucket.material-tailwind.com/magic-ai/dc74a867f21afc734166a6d37c08beaba4ff040664ba8ccce918e054264ad68d.jpg",
             },
           ].map((block, index) => (
-            <div
+            <motion.div
               key={index}
               className="relative flex-col bg-transparent text-gray-700 shadow-none grid gap-2 sm:grid-cols-2 rounded-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.3 }}
+              viewport={{ once: true }}
             >
               <div className="relative overflow-hidden bg-white shadow-lg rounded-xl">
                 <img
@@ -129,7 +145,7 @@ function Home() {
                   {block.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
