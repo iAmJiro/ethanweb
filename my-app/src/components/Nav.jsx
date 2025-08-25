@@ -7,7 +7,7 @@ function Nav() {
 
   const navLinks = [
     { label: "HOME", path: "/" },
-    { label: "CONTACT US", path: "/products" },
+    { label: "CONTACT US", path: "/contact" },
   ];
 
   return (
