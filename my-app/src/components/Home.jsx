@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const features = [
     {
       icon: "fas fa-award",
@@ -26,10 +30,25 @@ function Home() {
     },
   ];
 
+  const gradientLayer = (
+    <div
+      className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+      aria-hidden="true"
+    >
+      <div
+        className="relative left-1/2 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#C79134] to-[#FFD700] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+        style={{
+          clipPath:
+            "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+        }}
+      />
+    </div>
+  );
+
   return (
     <div className="bg-gray-100 text-black">
       {/* Hero Section */}
-      <section className="relative pt-16 pb-32 flex items-center justify-center min-h-[75vh] w-full overflow-hidden w-screen">
+      <section className="relative pt-16 pb-32 flex items-center justify-center min-h-[75vh] w-full overflow-hidden">
         <div
           className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
           style={{
@@ -54,7 +73,7 @@ function Home() {
             maintenance.
           </p>
           <a href="contact">
-            <button className="mt-8 px-6 py-3 bg-white text-white font-semibold rounded-full shadow hover:bg-gray-200 transition duration-200">
+            <button className="mt-8 px-6 py-3 bg-[#C79134] text-white font-semibold rounded-full shadow hover:bg-[#b07a2c] transition duration-200">
               Get Started
             </button>
           </a>
@@ -62,13 +81,14 @@ function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-neutral-900 py-20 -mt-24 text-white">
+      <section className="relative bg-neutral-900 py-20 text-white overflow-hidden">
+        {gradientLayer}
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-y-12">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="w-full md:w-3/12 px-4 text-center flex justify-center z-20"
+                className="w-full md:w-3/12 px-4 text-center flex justify-center"
                 initial={{ opacity: 0, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -89,8 +109,9 @@ function Home() {
         </div>
       </section>
 
-      {/* Magic AI Blocks Section */}
-      <section className="bg-neutral-900 grid min-h-screen p-8 place-items-center">
+      {/* About Section */}
+      <section className="relative bg-neutral-900 grid min-h-screen p-8 place-items-center overflow-hidden">
+        {gradientLayer}
         <div className="container grid grid-cols-1 gap-8 my-auto lg:grid-cols-2">
           {[
             {
