@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 
 function Home() {
@@ -72,11 +74,12 @@ function Home() {
             focus on the bigger picture. Whether it’s a quick repair or ongoing
             maintenance.
           </p>
-          <a href="contact">
-            <button className="mt-8 px-6 py-3 bg-[#C79134] text-white font-semibold rounded-full shadow hover:bg-[#b07a2c] transition duration-200">
-              Get Started
-            </button>
-          </a>
+          <Link
+            to="/contact"
+            className="inline-block mt-8 px-6 py-3 bg-[#C79134] text-white font-semibold rounded-full shadow hover:bg-[#b07a2c] transition duration-200"
+          >
+            Get Started
+          </Link>
         </motion.div>
       </section>
 
