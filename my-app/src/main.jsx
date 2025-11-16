@@ -6,6 +6,7 @@ import Home from "./components/Home.jsx";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import Contact from "./components/Contact.jsx";
+import Rates from "./components/Rates.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Router>
@@ -13,6 +14,7 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/rates" element={<Rates />} />
     </Routes>
     <Footer></Footer>
   </Router>

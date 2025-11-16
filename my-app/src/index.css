@@ -22,7 +22,7 @@ a {
 a:hover {
   color: #ffffff;
 }
-
+/* 
 body {
   margin: 0;
   display: flex;
@@ -30,6 +30,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+} */
+body {
+  min-height: 100vh;
 }
 
 h1 {
@@ -69,3 +72,14 @@ button:focus-visible {
   }
 }
 /* =========================================================================================================================== */
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.fonttext {
+  font-family: "imperial", sans-serif;
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

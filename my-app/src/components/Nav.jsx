@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo1.png";
+import logo from "../assets/etlogo1.png";
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "HOME", path: "/" },
-    { label: "CONTACT US", path: "/contact" },
+    { label: "My Work", path: "/" },
+    { label: "Equipment", path: "/equipment" },
+    { label: "Services", path: "/services" },
+    { label: "Rates", path: "/rates" },
+    { label: "Contact us", path: "/contact" },
   ];
 
   return (
@@ -18,14 +21,14 @@ function Nav() {
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <img src={logo} alt="EGH Logo" className="h-8 sm:h-10 w-auto" />
-              <span className="text-white text-2xl sm:text-3xl font-light tracking-[0.3em]">
-                EGH Construction
+              <img src={logo} alt="EGH Logo" className="h-8 sm:h-24 w-auto" />
+              <span className="fonttext text-white text-2xl sm:text-3xl font-light tracking-[0.3em]">
+                Ethan Holden Photography
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-16 text-xs tracking-[0.2em]">
+            <div className="fonttext hidden md:flex space-x-16 text-xs tracking-[0.2em]">
               {navLinks.map(({ label, path }) => (
                 <Link
                   key={label}
