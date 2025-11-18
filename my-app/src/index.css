@@ -83,3 +83,6 @@ button:focus-visible {
   font-weight: 400;
   font-style: normal;
 }
+.footer {
+  overflow-x: hidden;
+}

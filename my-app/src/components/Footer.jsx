@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="w-screen mx-auto">
+    <div className="footer w-screen mx-auto">
       <footer
         style={{ backgroundColor: "rgba(20, 20, 20, 1)" }}
         className="p-4 rounded-lg shadow md:px-6 md:py-8"

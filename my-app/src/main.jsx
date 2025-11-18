@@ -7,6 +7,7 @@ import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import Contact from "./components/Contact.jsx";
 import Rates from "./components/Rates.jsx";
+import "./styles/global.css";
 
 createRoot(document.getElementById("root")).render(
   <Router>
