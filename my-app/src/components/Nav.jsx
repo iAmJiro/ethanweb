@@ -3,18 +3,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import logo from "@/assets/etlogo1.png"; // or "../../assets/etlogo1.png" if alias isn't set
+import logo from "@/assets/etlogo1.png";
 
 import {
   Navbar,
   NavBody,
-  NavItems,
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
-  // NavbarButton, // optional if you want a CTA on the right
-} from "@/components/ui/resizable-navbar"; // adjust path to your file
+} from "@/components/ui/resizable-navbar";
 
 const navItems = [
   { name: "My Work", link: "/" },
@@ -36,17 +34,26 @@ export default function SiteNav() {
             alt="Ethan Holden Photography"
             className="h-8 sm:h-20 w-auto"
           />
+          {/* Optional text logo */}
           {/* <span className="fonttext text-xs sm:text-lg md:text-xl font-light tracking-[0.3em] uppercase text-black dark:text-white">
             Ethan Holden Photography
           </span> */}
         </Link>
 
         {/* Center links */}
-        <NavItems
-          items={navItems}
-          onItemClick={() => setIsOpen(false)}
-          className="fonttext uppercase tracking-[0.2em]"
-        />
+        <nav className="relative flex flex-1 justify-center">
+          <div className="flex items-center space-x-2 fonttext uppercase tracking-[0.2em] text-sm">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.link}
+                className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </nav>
 
         {/* Optional right-side button */}
         {/* <NavbarButton as={Link} to="/contact" variant="dark">
@@ -80,7 +87,7 @@ export default function SiteNav() {
               key={item.name}
               to={item.link}
               onClick={() => setIsOpen(false)}
-              className="w-full text-left text-neutral-900 dark:text-neutral-100 text-sm font-medium tracking-[0.2em] uppercase"
+              className="w-full text-left text-neutral-900 dark:text-neutral-100 text-sm font-medium tracking-[0.2em] uppercase hover:text-black dark:hover:text-white transition-colors"
             >
               {item.name}
             </Link>

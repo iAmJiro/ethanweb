@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
@@ -16,11 +17,32 @@ const staggerContainer = {
   },
 };
 
+// Booking options (must match what you pass from Rates: intro, base, popular, enterprise)
+const planOptions = [
+  { id: "intro", label: "Intro – $0.69" },
+  { id: "base", label: "Base – $39" },
+  { id: "popular", label: "Popular – $99" },
+  { id: "enterprise", label: "Enterprise – $199" },
+];
+
 const Contact = () => {
+  const location = useLocation();
+  const form = useRef();
+
+  // get initial plan from navigation state (from Rates)
+  const [selectedPlan, setSelectedPlan] = useState(location.state?.plan || "");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // if you navigate again with another plan, sync it
+  useEffect(() => {
+    if (location.state?.plan) {
+      setSelectedPlan(location.state.plan);
+    }
+  }, [location.state]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -28,14 +50,13 @@ const Contact = () => {
     emailjs
       .sendForm(
         "service_hyexll9",
-        "template_ojkknut",
+        "template_yglvh78",
         form.current,
         "byMpOZOmxO-zU25xa"
       )
       .then(() => {
-        alert(
-          "Message sent successfully! We will contact you in earliest business day."
-        );
+        // hide form + show confirmation message
+        setIsSubmitted(true);
         form.current.reset();
       })
       .catch((error) => {
@@ -45,9 +66,9 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-neutral-900 dark:bg-neutral-900" id="contact">
+    <section className="bg-black dark:bg-black" id="contact">
       <motion.div
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
+        className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8 lg:py-20"
         variants={fadeInVariant}
         initial="hidden"
         whileInView="visible"
@@ -79,7 +100,7 @@ const Contact = () => {
             {/* Contact Info */}
             <motion.div className="h-full pr-6" variants={fadeInVariant}>
               <p className="mt-3 mb-12 text-lg text-slate-400">
-                EGH Construction is the team you can count on.
+                My skills in photography are something you can count on.
               </p>
               <ul className="mb-6 md:mb-0">
                 {/* Address */}
@@ -158,65 +179,117 @@ const Contact = () => {
               </ul>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Contact Form / Confirmation */}
             <motion.div
               className="card h-fit max-w-6xl p-5 md:p-12"
               id="form"
               variants={fadeInVariant}
             >
-              <h2 className="mb-4 text-2xl font-bold text-white">
-                Ready to Get Started?
-              </h2>
-              <form ref={form} onSubmit={sendEmail}>
-                <div className="mb-6">
-                  <div className="mx-0 mb-1 sm:mb-4">
-                    <motion.input
-                      type="text"
-                      name="from_name"
-                      placeholder="Your name"
-                      className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
-                      required
-                      variants={fadeInVariant}
+              {isSubmitted ? (
+                <motion.div
+                  variants={fadeInVariant}
+                  initial="hidden"
+                  animate="visible"
+                  className="space-y-4 text-center"
+                >
+                  <h2 className="mb-2 text-2xl font-bold text-white">
+                    We received your request!
+                  </h2>
+                  <p className="text-lg text-slate-300">
+                    I will reply to you soon.
+                  </p>
+                </motion.div>
+              ) : (
+                <>
+                  <h2 className="mb-4 text-2xl font-bold text-white">
+                    Ready to Get Started?
+                  </h2>
+                  <form ref={form} onSubmit={sendEmail}>
+                    <div className="mb-6">
+                      <div className="mx-0 mb-1 sm:mb-4">
+                        <motion.input
+                          type="text"
+                          name="from_name"
+                          placeholder="Your name"
+                          className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
+                          required
+                          variants={fadeInVariant}
+                        />
+                        <motion.input
+                          type="email"
+                          name="from_email"
+                          placeholder="Your email address"
+                          className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
+                          required
+                          variants={fadeInVariant}
+                        />
+                        <motion.input
+                          type="tel"
+                          name="phone"
+                          placeholder="Your phone number"
+                          className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
+                          variants={fadeInVariant}
+                        />
+
+                        {/* Booking options just below phone number */}
+                        <motion.div className="mt-4" variants={fadeInVariant}>
+                          <p className="mb-2 text-sm font-medium text-slate-300">
+                            Choose a package
+                          </p>
+                          <div className="flex flex-wrap gap-3">
+                            {planOptions.map((option) => (
+                              <motion.button
+                                key={option.id}
+                                type="button"
+                                onClick={() => setSelectedPlan(option.id)}
+                                className={`rounded-full border px-4 py-2 text-sm transition ${
+                                  selectedPlan === option.id
+                                    ? "bg-white text-black border-white"
+                                    : "border-neutral-600 text-slate-300 hover:bg-neutral-900"
+                                }`}
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                              >
+                                {option.label}
+                              </motion.button>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
+
+                      <div className="mx-0 mb-1 sm:mb-4">
+                        <motion.textarea
+                          name="message"
+                          rows="5"
+                          placeholder="Write your message..."
+                          className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
+                          required
+                          variants={fadeInVariant}
+                        ></motion.textarea>
+                      </div>
+                    </div>
+
+                    {/* Hidden field so EmailJS also receives the plan */}
+                    <input
+                      type="hidden"
+                      name="selected_plan"
+                      value={selectedPlan || ""}
                     />
-                    <motion.input
-                      type="email"
-                      name="from_email"
-                      placeholder="Your email address"
-                      className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
-                      required
-                      variants={fadeInVariant}
-                    />
-                    <motion.input
-                      type="tel"
-                      name="phone"
-                      placeholder="Your phone number"
-                      className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
-                      variants={fadeInVariant}
-                    />
-                  </div>
-                  <div className="mx-0 mb-1 sm:mb-4">
-                    <motion.textarea
-                      name="message"
-                      rows="5"
-                      placeholder="Write your message..."
-                      className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
-                      required
-                      variants={fadeInVariant}
-                    ></motion.textarea>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <motion.button
-                    type="submit"
-                    className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md hover:bg-blue-700 transition"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    variants={fadeInVariant}
-                  >
-                    Send Message
-                  </motion.button>
-                </div>
-              </form>
+
+                    <div className="text-center">
+                      <motion.button
+                        type="submit"
+                        className="w-full bg-blue-800 text-white pt-6 py-3 font-xl rounded-md hover:bg-blue-700 transition"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        variants={fadeInVariant}
+                      >
+                        Send Message
+                      </motion.button>
+                    </div>
+                  </form>
+                </>
+              )}
             </motion.div>
           </div>
         </motion.div>

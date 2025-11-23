@@ -35,7 +35,7 @@ function Footer() {
 
           {/* Small text */}
           <p className="mb-10 text-neutral-500 text-sm text-center">
-            © {new Date().getFullYear()} Ethan Hoden Photography. All rights
+            © {new Date().getFullYear()} Ethan Holden Photography. All rights
             reserved.
           </p>
         </div>

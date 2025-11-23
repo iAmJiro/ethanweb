@@ -44,7 +44,7 @@ export function DraggableCardDemo() {
       className: "absolute top-24 left-[45%] rotate-[-7deg]",
     },
     {
-      title: "Canada",
+      title: "You can drag me!",
       image:
         "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3",
       className: "absolute top-8 left-[30%] rotate-[4deg]",
@@ -74,7 +74,7 @@ export function DraggableCardDemo() {
             <h3 className="mt-4 text-center text-2xl font-bold">
               <Link
                 to={`/gallery/${slug}`}
-                className="text-black dark:text-black hover:text-white hover:underline transition"
+                className="!text-black dark:!text-black hover:!text-white hover:underline transition"
               >
                 {item.title}
               </Link>

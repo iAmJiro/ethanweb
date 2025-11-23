@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { AuroraBackground } from "./ui/aurora-background";
 
@@ -16,14 +17,6 @@ function Rates() {
                 revealDelayMs={50}
               />
             </h2>
-            {/* <p className="mt-4 text-gray-500 dark:text-gray-400">
-              <EncryptedText
-                text="Ethan Holden Photography"
-                encryptedClassName="text-neutral-500"
-                revealedClassName="dark:text-white text-white"
-                revealDelayMs={50}
-              />
-            </p> */}
           </div>
         </div>
 
@@ -37,7 +30,6 @@ function Rates() {
               For most businesses that want to optimize web queries.
             </p>
 
-            {/* features */}
             <div className="mt-8 space-y-8">
               <Feature text="All limited links" />
               <Feature text="Own analytics platform" />
@@ -46,9 +38,13 @@ function Rates() {
               <Feature text="Unlimited users" />
             </div>
 
-            <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md hover:bg-blue-600">
-              Choose plan
-            </button>
+            <Link
+              to="/contact"
+              state={{ plan: "intro" }}
+              className="block w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md text-center hover:bg-blue-600"
+            >
+              Book now!
+            </Link>
           </div>
 
           {/* Card 2 */}
@@ -67,12 +63,16 @@ function Rates() {
               <Feature text="Unlimited users" />
             </div>
 
-            <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md hover:bg-blue-600">
-              Choose plan
-            </button>
+            <Link
+              to="/contact"
+              state={{ plan: "base" }}
+              className="block w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md text-center hover:bg-blue-600"
+            >
+              Book now!
+            </Link>
           </div>
 
-          {/* Card 3 (Popular) */}
+          {/* Card 3 */}
           <div className="fade-in [animation-delay:0.3s] px-6 py-4 transition-colors duration-200 transform bg-gray-700 rounded-lg dark:bg-gray-600">
             <p className="text-lg font-medium text-gray-100">Popular</p>
             <h4 className="mt-2 text-4xl font-semibold text-gray-100">$99</h4>
@@ -88,9 +88,13 @@ function Rates() {
               <Feature text="Unlimited users" dark />
             </div>
 
-            <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md hover:bg-blue-600">
-              Choose plan
-            </button>
+            <Link
+              to="/contact"
+              state={{ plan: "popular" }}
+              className="block w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md text-center hover:bg-blue-600"
+            >
+              Book now!
+            </Link>
           </div>
 
           {/* Card 4 */}
@@ -109,9 +113,13 @@ function Rates() {
               <Feature text="Unlimited users" />
             </div>
 
-            <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md hover:bg-blue-600">
-              Choose plan
-            </button>
+            <Link
+              to="/contact"
+              state={{ plan: "enterprise" }}
+              className="block w-full px-4 py-2 mt-10 font-medium tracking-wide text-white bg-blue-500 rounded-md text-center hover:bg-blue-600"
+            >
+              Book now!
+            </Link>
           </div>
         </div>
       </div>
