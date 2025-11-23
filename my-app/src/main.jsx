@@ -19,5 +19,6 @@ createRoot(document.getElementById("root")).render(
       <Route path="/contact" element={<Contact />} />
       <Route path="/rates" element={<Rates />} />
     </Routes>
+    <Footer></Footer>
   </Router>
 );

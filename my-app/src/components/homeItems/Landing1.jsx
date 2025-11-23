@@ -1,14 +1,21 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "../ui/sparkles";
+import { EncryptedText } from "@/components/ui/encrypted-text";
+import { BeforeContact } from "./BeforeContact";
 
 export function Landing1() {
   return (
     <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
       <h1 className="fonttext md:text-7xl text-5xl lg:text-8xl font-bold text-center text-white relative z-20">
-        Ethan Holden Photography
+        <EncryptedText
+          text="Ethan Holden Photography"
+          encryptedClassName="text-neutral-500"
+          revealedClassName="dark:text-white text-white"
+          revealDelayMs={50}
+        />
       </h1>
-      <h2 className="md:text-7xl text-5xl lg:text-2xl font-bold text-center text-white relative z-20">
+      <h2 className="fade-in [animation-delay:0.5s] md:text-7xl text-5xl lg:text-2xl font-bold text-center text-white relative z-20">
         Scroll down to explore
       </h2>
       <div className="w-[40rem] h-40 relative">
@@ -31,6 +38,7 @@ export function Landing1() {
         {/* Radial Gradient to prevent sharp edges */}
         <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
+      <BeforeContact />
     </div>
   );
 }
