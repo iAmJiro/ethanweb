@@ -1,7 +1,7 @@
 import React from "react";
 function Rates() {
   return (
-    <section class="bg-white dark:bg-gray-800 md:pt-28">
+    <section class="bg-red dark:red md:pt-28">
       <div class="container px-6 py-8 mx-auto">
         <div class="sm:flex sm:items-center sm:justify-between">
           <div>

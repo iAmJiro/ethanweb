@@ -77,12 +77,12 @@ button:focus-visible {
   font-weight: 400;
   font-style: normal;
 }
-.fonttext {
+/* .fonttext {
   font-family: "imperial", sans-serif;
   font-family: "Imperial Script", cursive;
   font-weight: 400;
   font-style: normal;
-}
+} */
 .footer {
   overflow-x: hidden;
 }

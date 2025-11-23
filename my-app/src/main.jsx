@@ -9,6 +9,8 @@ import Contact from "./components/Contact.jsx";
 import Rates from "./components/Rates.jsx";
 import "./styles/global.css";
 
+import { Navbar } from "./components/ui/resizable-navbar";
+
 createRoot(document.getElementById("root")).render(
   <Router>
     <Nav></Nav>
@@ -17,6 +19,5 @@ createRoot(document.getElementById("root")).render(
       <Route path="/contact" element={<Contact />} />
       <Route path="/rates" element={<Rates />} />
     </Routes>
-    <Footer></Footer>
   </Router>
 );
