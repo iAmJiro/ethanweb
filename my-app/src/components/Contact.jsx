@@ -242,11 +242,12 @@ const Contact = () => {
                                 key={option.id}
                                 type="button"
                                 onClick={() => setSelectedPlan(option.id)}
-                                className={`rounded-full border px-4 py-2 text-sm transition ${
-                                  selectedPlan === option.id
-                                    ? "bg-white text-black border-white"
-                                    : "border-neutral-600 text-slate-300 hover:bg-neutral-900"
-                                }`}
+                                className={`rounded-full border px-4 py-2 text-sm transition-all duration-200 ease-out transform
+                                  ${
+                                    selectedPlan === option.id
+                                      ? "bg-neutral-700 border-white text-white scale-105"
+                                      : "border-neutral-600 text-slate-300 hover:bg-neutral-900"
+                                  }`}
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
                               >

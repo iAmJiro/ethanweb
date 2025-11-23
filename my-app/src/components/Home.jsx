@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DraggableCardDemo } from "./homeItems/DraggableCardDemo";
 import { SparklesCore } from "./ui/sparkles";
@@ -9,6 +9,9 @@ import { BoxAboutus } from "./homeItems/BoxAboutus";
 import bgImage from "@/assets/beach2.png";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div class="homeclass relative">
       <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-black">

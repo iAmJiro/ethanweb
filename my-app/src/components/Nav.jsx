@@ -20,6 +20,8 @@ const navItems = [
   { name: "Contact us", link: "/contact" },
 ];
 
+import GalleryRouter from "./gallery/GalleryRouter";
+
 export default function SiteNav() {
   const [isOpen, setIsOpen] = useState(false);
 

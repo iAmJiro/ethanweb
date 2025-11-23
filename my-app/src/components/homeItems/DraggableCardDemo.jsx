@@ -8,19 +8,19 @@ import {
 export function DraggableCardDemo() {
   const items = [
     {
-      title: "Tyler Durden",
+      title: "Cars",
       image:
         "https://images.unsplash.com/photo-1732310216648-603c0255c000?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
       className: "absolute top-10 left-[20%] rotate-[-5deg]",
     },
     {
-      title: "The Narrator",
+      title: "Nature",
       image:
         "https://images.unsplash.com/photo-1697909623564-3dae17f6c20b?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3",
       className: "absolute top-40 left-[25%] rotate-[-7deg]",
     },
     {
-      title: "Iceland",
+      title: "Portrait",
       image:
         "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3",
       className: "absolute top-5 left-[40%] rotate-[8deg]",

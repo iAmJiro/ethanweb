@@ -10,6 +10,7 @@ import Rates from "./components/Rates.jsx";
 import "./styles/global.css";
 
 import { Navbar } from "./components/ui/resizable-navbar";
+import GalleryRouter from "./components/gallery/GalleryRouter";
 
 createRoot(document.getElementById("root")).render(
   <Router>
@@ -18,6 +19,8 @@ createRoot(document.getElementById("root")).render(
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/rates" element={<Rates />} />
+
+      <Route path="/gallery/:slug" element={<GalleryRouter />} />
     </Routes>
     <Footer></Footer>
   </Router>
