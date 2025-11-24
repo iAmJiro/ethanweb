@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
+import { EncryptedText } from "./ui/encrypted-text";
 
 const fadeInVariant = {
   hidden: { opacity: 0 },
@@ -81,7 +82,7 @@ const Contact = () => {
               Contact
             </p>
             <h2 className="font-heading mb-4 font-bold tracking-tight text-white text-3xl sm:text-5xl">
-              Get in Touch
+              <EncryptedText text="Get in Touch" />
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-xl text-slate-400">
               We will get back to you as soon as possible!

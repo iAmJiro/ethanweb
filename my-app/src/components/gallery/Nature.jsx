@@ -1,6 +1,11 @@
+import React, { useEffect } from "react";
 import { FocusCards } from "@/components/ui/focus-cards";
+import { motion } from "framer-motion";
 
 export default function Nature() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const cards = [
     {
       title: "Forest Adventure",
@@ -29,8 +34,13 @@ export default function Nature() {
   ];
 
   return (
-    <div className="pt-20 bg-black min-h-screen">
+    <motion.div
+      className="pt-20 bg-black min-h-screen"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <FocusCards cards={cards} />
-    </div>
+    </motion.div>
   );
 }

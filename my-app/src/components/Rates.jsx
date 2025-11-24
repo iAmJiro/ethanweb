@@ -23,7 +23,7 @@ function Rates() {
         {/* Pricing Grid */}
         <div className="grid gap-6 mt-16 -mx-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* Card 1 */}
-          <div className="fade-in [animation-delay:0.1s] px-6 py-4 transition-colors duration-200 transform rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+          <div className="fade-in [animation-delay:0.1s] px-6 py-4 transition-colors duration-200 transform rounded-lg">
             <p className="text-lg font-medium text-white">Intro</p>
             <h4 className="mt-2 text-4xl font-semibold text-white">$0.69</h4>
             <p className="mt-4 text-gray-500 dark:text-gray-300">
@@ -48,7 +48,7 @@ function Rates() {
           </div>
 
           {/* Card 2 */}
-          <div className="fade-in [animation-delay:0.2s] px-6 py-4 transition-colors duration-200 transform rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+          <div className="fade-in [animation-delay:0.2s] px-6 py-4 transition-colors duration-200 transform rounded-lg">
             <p className="text-lg font-medium text-white">Base</p>
             <h4 className="mt-2 text-4xl font-semibold text-white">$39</h4>
             <p className="mt-4 text-gray-500 dark:text-gray-300">
@@ -98,7 +98,7 @@ function Rates() {
           </div>
 
           {/* Card 4 */}
-          <div className="fade-in [animation-delay:0.4s] px-6 py-4 transition-colors duration-200 transform rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+          <div className="fade-in [animation-delay:0.4s] px-6 py-4 transition-colors duration-200 transform rounded-lg">
             <p className="text-lg font-medium text-white">Enterprise</p>
             <h4 className="mt-2 text-4xl font-semibold text-white">$199</h4>
             <p className="mt-4 text-gray-500 dark:text-gray-300">

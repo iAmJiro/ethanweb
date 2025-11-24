@@ -121,3 +121,7 @@
     @apply bg-background text-foreground;
   }
 }
+.mobile-nav-toggle svg {
+  stroke: white !important;
+  color: white !important;
+}

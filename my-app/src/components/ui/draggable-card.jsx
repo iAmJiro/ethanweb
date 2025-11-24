@@ -23,7 +23,6 @@ export const DraggableCardBody = ({ className, children }) => {
     bottom: 0,
   });
 
-  // physics biatch
   const velocityX = useVelocity(mouseX);
   const velocityY = useVelocity(mouseY);
 
@@ -53,7 +52,6 @@ export const DraggableCardBody = ({ className, children }) => {
   );
 
   useEffect(() => {
-    // Update constraints when component mounts or window resizes
     const updateConstraints = () => {
       if (typeof window !== "undefined") {
         setConstraints({
@@ -66,14 +64,8 @@ export const DraggableCardBody = ({ className, children }) => {
     };
 
     updateConstraints();
-
-    // Add resize listener
     window.addEventListener("resize", updateConstraints);
-
-    // Clean up
-    return () => {
-      window.removeEventListener("resize", updateConstraints);
-    };
+    return () => window.removeEventListener("resize", updateConstraints);
   }, []);
 
   const handleMouseMove = (e) => {
@@ -117,9 +109,9 @@ export const DraggableCardBody = ({ className, children }) => {
             ...springConfig,
           },
         });
+
         const currentVelocityX = velocityX.get();
         const currentVelocityY = velocityY.get();
-
         const velocityMagnitude = Math.sqrt(
           currentVelocityX * currentVelocityX +
             currentVelocityY * currentVelocityY
@@ -157,15 +149,17 @@ export const DraggableCardBody = ({ className, children }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900",
+        // 🔽 smaller, non-elongated card sizes
+        "relative overflow-hidden rounded-md bg-neutral-100 shadow-2xl transform-3d dark:bg-neutral-900",
+        "h-72 w-44 p-3        /* mobile */",
+        "sm:h-80 sm:w-56 sm:p-4",
+        "md:h-96 md:w-72 md:p-6",
         className
       )}
     >
       {children}
       <motion.div
-        style={{
-          opacity: glareOpacity,
-        }}
+        style={{ opacity: glareOpacity }}
         className="pointer-events-none absolute inset-0 bg-white select-none"
       />
     </motion.div>

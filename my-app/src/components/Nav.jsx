@@ -64,6 +64,7 @@ export default function SiteNav() {
       </NavBody>
 
       {/* Mobile nav */}
+      {/* Mobile nav */}
       <MobileNav>
         <MobileNavHeader>
           <Link to="/" className="flex items-center space-x-3">
@@ -72,7 +73,7 @@ export default function SiteNav() {
               alt="Ethan Holden Photography"
               className="h-8 w-auto"
             />
-            <span className="fonttext text-sm font-light tracking-[0.2em] uppercase text-black dark:text-white">
+            <span className="fonttext text-sm font-light tracking-[0.2em] uppercase text-white">
               Ethan Holden
             </span>
           </Link>
@@ -80,6 +81,7 @@ export default function SiteNav() {
           <MobileNavToggle
             isOpen={isOpen}
             onClick={() => setIsOpen((prev) => !prev)}
+            className="mobile-nav-toggle"
           />
         </MobileNavHeader>
 
@@ -89,7 +91,7 @@ export default function SiteNav() {
               key={item.name}
               to={item.link}
               onClick={() => setIsOpen(false)}
-              className="w-full text-left text-neutral-900 dark:text-neutral-100 text-sm font-medium tracking-[0.2em] uppercase hover:text-black dark:hover:text-white transition-colors"
+              className="w-full text-left text-white text-sm font-medium tracking-[0.2em] uppercase hover:text-neutral-300 transition-colors"
             >
               {item.name}
             </Link>

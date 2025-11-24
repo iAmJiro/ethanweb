@@ -31,18 +31,18 @@ export function DraggableCardDemo() {
         "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3",
       className: "absolute top-32 left-[55%] rotate-[10deg]",
     },
-    {
-      title: "Norway",
-      image:
-        "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3",
-      className: "absolute top-20 right-[35%] rotate-[2deg]",
-    },
-    {
-      title: "New Zealand",
-      image:
-        "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3",
-      className: "absolute top-24 left-[45%] rotate-[-7deg]",
-    },
+    // {
+    //   title: "Norway",
+    //   image:
+    //     "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3",
+    //   className: "absolute top-20 right-[35%] rotate-[2deg]",
+    // },
+    // {
+    //   title: "New Zealand",
+    //   image:
+    //     "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3",
+    //   className: "absolute top-24 left-[45%] rotate-[-7deg]",
+    // },
     {
       title: "You can drag me!",
       image:
@@ -52,8 +52,13 @@ export function DraggableCardDemo() {
   ];
 
   return (
-    <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
-      <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-white md:text-4xl">
+    <DraggableCardContainer
+      className="
+        relative flex w-full items-center justify-center overflow-clip
+        h-[80vh] md:h-screen   /* <— fills screen on desktop, a bit shorter on mobile */
+      "
+    >
+      <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-xl font-black text-white md:text-4xl">
         Click the titles to explore the gallery.
       </p>
 
@@ -63,15 +68,26 @@ export function DraggableCardDemo() {
         return (
           <DraggableCardBody
             key={slug + index}
-            className={`${item.className} shadow-xl shadow-black/30 rounded-xl`}
+            className={`
+              ${item.className}
+              shadow-xl shadow-black/30 rounded-xl
+              p-2 sm:p-4
+              h-[300px] sm:h-[380px]
+              w-[200px] sm:w-[300px]
+            `}
           >
             <img
               src={item.image}
               alt={item.title}
-              className="pointer-events-none relative z-10 h-80 w-80 object-cover rounded-xl"
+              className="
+                pointer-events-none relative z-10
+                rounded-xl object-cover
+                h-[180px] w-full
+                sm:h-[250px]
+              "
             />
 
-            <h3 className="mt-4 text-center text-2xl font-bold">
+            <h3 className="mt-2 text-center text-lg sm:text-2xl font-bold">
               <Link
                 to={`/gallery/${slug}`}
                 className="!text-black dark:!text-black hover:!text-white hover:underline transition"
