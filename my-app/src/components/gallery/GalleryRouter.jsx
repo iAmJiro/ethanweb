@@ -24,7 +24,7 @@ export default function GalleryRouter() {
   if (!GalleryComponent) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black text-white">
-        <p className="text-xl">Gallery not found.</p>
+        <p className="text-xl">That was literally just an example, go back.</p>
       </div>
     );
   }

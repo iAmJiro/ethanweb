@@ -4,24 +4,26 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export function BoxAboutus() {
   return (
-    <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2 px-10 sm:pb-100 md:pb-0">
+    <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2 px-10 sm:pb-100 md:pb-0 ">
       <GridItem
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
         icon={<Box className="h-4 w-4 text-white dark:text-neutral-400" />}
         title="Who am I?"
-        description="Lorem ipsum right here or something like that, I'm too lazy to get one from the internet."
+        description="I’m Ethan! I’ve been an avid photographer for about 3-4 years now, it started out as just a hobby really, but as I grew more confident and more focused in my work it began to become an obsession"
       />
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={<Settings className="h-4 w-4 text-white dark:text-neutral-400" />}
-        title="Where am I?"
-        description="Lorem ipsum right here or something like that, I'm too lazy to get one from the internet"
+        title="My instruments?"
+        description={`Cameras:\nPanasonic LUMIX DC-FZ80 | Nikon D300\nDrone: DJI Mini 2 SE`}
       />
       <GridItem
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
         icon={<Lock className="h-4 w-4 text-white dark:text-neutral-400" />}
-        title="Why am I?"
-        description="Lorem ipsum right here or something like that, I'm too lazy to get one from the internet"
+        title="A little about me"
+        description="I finally started to understand the beauty behind the lens, that it really is easy to do and that anyone can point and click a camera, but it’s capturing emotion, raw feelings and creating that something special and making it immortal. That’s the art.
+          So join me on my journey as I join the realm of professional photography, book your next shoot with Ethan Holden Photography! Hope to see you very soon 🙂
+        "
       />
       <GridItem
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"

@@ -1,36 +1,45 @@
 import React, { useEffect } from "react";
-import { FocusCards } from "@/components/ui/focus-cards";
 import { motion } from "framer-motion";
+
+// IMPORT YOUR IMAGES
+import car2 from "../../img/car2.jpg";
+import car3 from "../../img/car3.jpg";
+import car4 from "../../img/car4.jpg";
+import car5 from "../../img/car5.jpg";
+import car6 from "../../img/car6.jpg";
+
+// 🔥 CUSTOM IMAGE-ONLY CARD GRID (NO WHITESPACE)
+function ImageGrid({ cards }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 px-6 pb-20">
+      {cards.map((card, idx) => (
+        <div
+          key={idx}
+          className="rounded-xl overflow-hidden border border-neutral-800 hover:scale-[1.02] transition-transform duration-300"
+        >
+          <img
+            src={card.src}
+            alt={card.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Cars() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   const cards = [
-    {
-      title: "Forest Adventure",
-      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop",
-    },
-    {
-      title: "Valley of life",
-      src: "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop",
-    },
-    {
-      title: "Sala behta hi jayega",
-      src: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop",
-    },
-    {
-      title: "Camping is for pros",
-      src: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop",
-    },
-    {
-      title: "The road not taken",
-      src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop",
-    },
-    {
-      title: "The First Rule",
-      src: "https://assets.aceternity.com/the-first-rule.png",
-    },
+    { title: "Forest Adventure", src: car2 },
+    { title: "Valley of life", src: car3 },
+    { title: "Sala behta hi jayega", src: car4 },
+    { title: "Camping is for pros", src: car5 },
+    { title: "The road not taken", src: car6 },
+    { title: "The First Rule", src: car6 },
   ];
 
   return (
@@ -40,7 +49,7 @@ export default function Cars() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <FocusCards cards={cards} />
+      <ImageGrid cards={cards} />
     </motion.div>
   );
 }

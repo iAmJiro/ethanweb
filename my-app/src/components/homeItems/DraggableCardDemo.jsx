@@ -5,18 +5,19 @@ import {
   DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 
+import car1 from "../../img/car1.jpg";
+import nature1 from "../../img/nature1.jpg";
+
 export function DraggableCardDemo() {
   const items = [
     {
       title: "Cars",
-      image:
-        "https://images.unsplash.com/photo-1732310216648-603c0255c000?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: car1,
       className: "absolute top-10 left-[20%] rotate-[-5deg]",
     },
     {
       title: "Nature",
-      image:
-        "https://images.unsplash.com/photo-1697909623564-3dae17f6c20b?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: nature1,
       className: "absolute top-40 left-[25%] rotate-[-7deg]",
     },
     {

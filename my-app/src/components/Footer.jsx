@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="footer w-full mx-auto">
+    <div className="footer w-full mx-auto z-20">
       <footer className="w-full overflow-hidden bg-black text-white border-t border-neutral-800 py-2">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
           {/* Logo or Brand Name */}

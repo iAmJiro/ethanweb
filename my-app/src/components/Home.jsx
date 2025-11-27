@@ -9,32 +9,30 @@ import { BoxAboutus } from "./homeItems/BoxAboutus";
 import bgImage from "@/assets/beach2.png";
 
 function Home() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   return (
-    <div class="homeclass relative">
-      <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-black">
+    <div className="homeclass relative">
+      {/* HERO */}
+      <section className="sticky min-h-screen flex flex-col items-center justify-center bg-black">
         <Landing1 />
-      </div>
-      {/* <div class="sticky top-0 h-screen zflex flex-col items-center justify-center bg-amber-600 text-white">
-        <DraggableCardDemo />
-      </div> */}
-      <div
+      </section>
+
+      {/* BEACH / DRAGGABLE CARDS */}
+      <section
         className="
-    relative h-screen w-full flex flex-col items-center justify-center
-    bg-cover bg-center bg-no-repeat
-  "
+          relative min-h-screen w-full flex flex-col items-center justify-center
+          bg-cover bg-center bg-no-repeat
+        "
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <DraggableCardDemo />
-      </div>
+      </section>
 
-      <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-black text-white">
+      {/* ABOUT / BLACK SECTION */}
+      <section className="sticky min-h-screen flex flex-col items-center justify-center bg-black text-white">
         <BoxAboutus />
-      </div>
+      </section>
     </div>
   );
 }
+
 export default Home;
