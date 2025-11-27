@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import Footer from "./Footer";
 
 function Rates() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <section className="bg-black md:pt-28 pt-20">
       <div className="container px-6 py-8 mx-auto">
