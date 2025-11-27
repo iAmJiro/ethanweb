@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Cars from "./Cars";
 import Nature from "./Nature";
 import Portrait from "./Portrait";
+import Footer from "../Footer";
 
 // later you can add: import Japan from "./Japan"; etc.
 
@@ -29,5 +30,9 @@ export default function GalleryRouter() {
     );
   }
 
-  return <GalleryComponent />;
+  return (
+    <>
+      <GalleryComponent /> <Footer />
+    </>
+  );
 }

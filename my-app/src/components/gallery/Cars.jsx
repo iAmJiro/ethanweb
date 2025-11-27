@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-
 // IMPORT YOUR IMAGES
 import car2 from "../../img/car2.jpg";
 import car3 from "../../img/car3.jpg";
