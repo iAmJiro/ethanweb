@@ -71,7 +71,7 @@ export default function SiteNav() {
             <img
               src={logo}
               alt="Ethan Holden Photography"
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
             <span className="fonttext text-sm font-light tracking-[0.2em] uppercase text-white">
               Ethan Holden
@@ -91,7 +91,7 @@ export default function SiteNav() {
               key={item.name}
               to={item.link}
               onClick={() => setIsOpen(false)}
-              className="w-full text-left text-white text-sm font-medium tracking-[0.2em] uppercase hover:text-neutral-300 transition-colors"
+              className="w-full text-left text-black text-sm font-medium tracking-[0.2em] uppercase hover:text-neutral-300 transition-colors"
             >
               {item.name}
             </Link>
