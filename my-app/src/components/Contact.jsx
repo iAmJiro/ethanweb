@@ -283,9 +283,23 @@ const Contact = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                             {planOptions.map((option) => {
                               const isAddOns = option.id === "addons";
-                              const isSelected = isAddOns
-                                ? addOnsSelected
-                                : selectedPlan === option.id;
+                              const isMainSelected =
+                                !isAddOns && selectedPlan === option.id;
+                              const isAddOnSelected =
+                                isAddOns && addOnsSelected;
+
+                              let stateClasses =
+                                "border-neutral-600 text-slate-300 hover:bg-neutral-900";
+
+                              if (isMainSelected) {
+                                // main package highlight – bright blue glow
+                                stateClasses =
+                                  "border-blue-400 bg-neutral-800/80 text-white shadow-[0_0_0_1px_rgba(96,165,250,0.9),0_0_18px_rgba(37,99,235,0.45)]";
+                              } else if (isAddOnSelected) {
+                                // add-ons highlight – different accent so you can see both
+                                stateClasses =
+                                  "border-emerald-400 bg-neutral-800/80 text-white shadow-[0_0_0_1px_rgba(52,211,153,0.9),0_0_14px_rgba(16,185,129,0.45)]";
+                              }
 
                               return (
                                 <motion.button
@@ -293,13 +307,9 @@ const Contact = () => {
                                   type="button"
                                   onClick={() => handlePlanClick(option.id)}
                                   className={`
-                                    w-full rounded-md border px-4 py-3 text-sm text-center transition-all duration-200
-                                    ${
-                                      isSelected
-                                        ? "bg-neutral-700 border-white text-white scale-[1.01]"
-                                        : "border-neutral-600 text-slate-300 hover:bg-neutral-900"
-                                    }
-                                  `}
+        w-full rounded-md border px-4 py-3 text-sm text-center transition-all duration-200
+        ${stateClasses}
+      `}
                                   whileHover={{ scale: 1.03 }}
                                   whileTap={{ scale: 0.97 }}
                                 >
