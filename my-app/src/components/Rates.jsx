@@ -35,9 +35,6 @@ function Rates() {
               <h4 className="mt-2 text-4xl font-semibold text-white">
                 $150.00
               </h4>
-              <p className="mt-4 text-gray-500 dark:text-gray-300">
-                For most businesses that want to optimize web queries.
-              </p>
 
               <div className="mt-8 space-y-8">
                 <Feature text="1 hour session" />
@@ -62,9 +59,6 @@ function Rates() {
               <h4 className="mt-2 text-4xl font-semibold text-white">
                 $220.00
               </h4>
-              <p className="mt-4 text-gray-500 dark:text-gray-300">
-                For most businesses that want to optimize web queries.
-              </p>
 
               <div className="mt-8 space-y-8">
                 <Feature text="1.5 hour session" />
@@ -119,9 +113,6 @@ function Rates() {
               <h4 className="mt-2 text-sm font-semibold text-white">
                 minimum 2 hours
               </h4>
-              <p className="mt-4 text-gray-500 dark:text-gray-300">
-                For most businesses that want to optimize web queries.
-              </p>
 
               <div className="mt-8 space-y-8">
                 <Feature text="All usable images lightly edited" />
@@ -147,9 +138,6 @@ function Rates() {
                 $180/hr
               </h4>
               <h4 className="mt-2 text-sm font-semibold text-black">.</h4>
-              <p className="mt-4 text-gray-500 dark:text-gray-300">
-                For most businesses that want to optimize web queries.
-              </p>
 
               <div className="mt-8 space-y-8">
                 <Feature text="1 hour" />
@@ -173,10 +161,6 @@ function Rates() {
                 $15 each
               </h4>
               <h4 className="mt-2 text-sm font-semibold text-black">.</h4>
-
-              <p className="mt-4 text-gray-500 dark:text-gray-300">
-                For most businesses that want to optimize web queries.
-              </p>
 
               <div className="mt-8 space-y-8">
                 <Feature text="Extra hour $80.00" />
