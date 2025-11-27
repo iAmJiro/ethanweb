@@ -83,9 +83,6 @@ function Rates() {
               <h4 className="mt-2 text-4xl font-semibold text-gray-100">
                 $250.00
               </h4>
-              <p className="mt-4 text-gray-300">
-                For most businesses that want to optimize web queries.
-              </p>
 
               <div className="mt-8 space-y-8">
                 <Feature text="1 hour session" dark />
