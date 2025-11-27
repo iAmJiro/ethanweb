@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { EncryptedText } from "./ui/encrypted-text";
+import Footer from "./Footer";
 
 const fadeInVariant = {
   hidden: { opacity: 0 },
@@ -18,26 +19,50 @@ const staggerContainer = {
   },
 };
 
-// Booking options (must match what you pass from Rates: intro, base, popular, enterprise)
+// All packages from Rates page
 const planOptions = [
-  { id: "intro", label: "Intro – $0.69" },
-  { id: "base", label: "Base – $39" },
-  { id: "popular", label: "Popular – $99" },
-  { id: "enterprise", label: "Enterprise – $199" },
+  { id: "portrait", label: "Portrait / Lifestyle Session – $150" },
+  { id: "couples", label: "Couples / Engagement – $220" },
+  { id: "family", label: "Family Session – $250" },
+  {
+    id: "events",
+    label: "Event Photography (Beginner) – $120/hr (min 2 hrs)",
+  },
+  { id: "business", label: "Business / Branding Session – $180/hr" },
+  { id: "addons", label: "Add-ons – $15 each" }, // independent toggle
 ];
 
 const Contact = () => {
   const location = useLocation();
   const form = useRef();
 
-  // get initial plan from navigation state (from Rates)
-  const [selectedPlan, setSelectedPlan] = useState(location.state?.plan || "");
+  // Map plan from Rates (intro/base/popular/enterprise) to internal ids
+  const mapInitialPlan = (planFromRoute) => {
+    switch (planFromRoute) {
+      case "intro":
+        return "portrait";
+      case "base":
+        return "couples";
+      case "popular":
+        return "family";
+      case "enterprise":
+        // could be events or business; tweak if you prefer
+        return "events";
+      default:
+        return "";
+    }
+  };
+
+  const initialPlanId = mapInitialPlan(location.state?.plan);
+
+  const [selectedPlan, setSelectedPlan] = useState(initialPlanId || "");
+  const [addOnsSelected, setAddOnsSelected] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // if you navigate again with another plan, sync it
+  // Sync when navigating with a new plan
   useEffect(() => {
     if (location.state?.plan) {
-      setSelectedPlan(location.state.plan);
+      setSelectedPlan(mapInitialPlan(location.state.plan));
     }
   }, [location.state]);
 
@@ -56,7 +81,6 @@ const Contact = () => {
         "byMpOZOmxO-zU25xa"
       )
       .then(() => {
-        // hide form + show confirmation message
         setIsSubmitted(true);
         form.current.reset();
       })
@@ -65,6 +89,20 @@ const Contact = () => {
         alert("Failed to send message. Please try again.");
       });
   };
+
+  // Handle main package vs add-ons logic
+  const handlePlanClick = (id) => {
+    if (id === "addons") {
+      // Add-ons can be toggled independently
+      setAddOnsSelected((prev) => !prev);
+    } else {
+      // Only one main package at a time (click again to clear)
+      setSelectedPlan((prev) => (prev === id ? "" : id));
+    }
+  };
+
+  const selectedPlanLabel =
+    planOptions.find((opt) => opt.id === selectedPlan)?.label || "";
 
   return (
     <section className="bg-black dark:bg-black" id="contact">
@@ -85,7 +123,8 @@ const Contact = () => {
               <EncryptedText text="Get in Touch" />
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-xl text-slate-400">
-              We will get back to you as soon as possible!
+              Tell me a bit about your shoot and I&apos;ll get back to you with
+              availability and details.
             </p>
           </div>
         </motion.div>
@@ -197,13 +236,13 @@ const Contact = () => {
                     We received your request!
                   </h2>
                   <p className="text-lg text-slate-300">
-                    I will reply to you soon.
+                    I&apos;ll get back to you soon about your shoot.
                   </p>
                 </motion.div>
               ) : (
                 <>
                   <h2 className="mb-4 text-2xl font-bold text-white">
-                    Ready to Get Started?
+                    Ready to get started?
                   </h2>
                   <form ref={form} onSubmit={sendEmail}>
                     <div className="mb-6">
@@ -232,30 +271,48 @@ const Contact = () => {
                           variants={fadeInVariant}
                         />
 
-                        {/* Booking options just below phone number */}
-                        <motion.div className="mt-4" variants={fadeInVariant}>
-                          <p className="mb-2 text-sm font-medium text-slate-300">
-                            Choose a package
+                        {/* Packages section */}
+                        <motion.div
+                          className="mt-4 w-full"
+                          variants={fadeInVariant}
+                        >
+                          <p className="mb-3 text-sm font-medium text-slate-300">
+                            Which package are you interested in?
                           </p>
-                          <div className="flex flex-wrap gap-3">
-                            {planOptions.map((option) => (
-                              <motion.button
-                                key={option.id}
-                                type="button"
-                                onClick={() => setSelectedPlan(option.id)}
-                                className={`rounded-full border px-4 py-2 text-sm transition-all duration-200 ease-out transform
-                                  ${
-                                    selectedPlan === option.id
-                                      ? "bg-neutral-700 border-white text-white scale-105"
-                                      : "border-neutral-600 text-slate-300 hover:bg-neutral-900"
-                                  }`}
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                              >
-                                {option.label}
-                              </motion.button>
-                            ))}
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                            {planOptions.map((option) => {
+                              const isAddOns = option.id === "addons";
+                              const isSelected = isAddOns
+                                ? addOnsSelected
+                                : selectedPlan === option.id;
+
+                              return (
+                                <motion.button
+                                  key={option.id}
+                                  type="button"
+                                  onClick={() => handlePlanClick(option.id)}
+                                  className={`
+                                    w-full rounded-md border px-4 py-3 text-sm text-center transition-all duration-200
+                                    ${
+                                      isSelected
+                                        ? "bg-neutral-700 border-white text-white scale-[1.01]"
+                                        : "border-neutral-600 text-slate-300 hover:bg-neutral-900"
+                                    }
+                                  `}
+                                  whileHover={{ scale: 1.03 }}
+                                  whileTap={{ scale: 0.97 }}
+                                >
+                                  {option.label}
+                                </motion.button>
+                              );
+                            })}
                           </div>
+
+                          <p className="mt-2 text-xs text-slate-400">
+                            Not sure yet? Pick the closest option and add more
+                            detail in your message below.
+                          </p>
                         </motion.div>
                       </div>
 
@@ -263,7 +320,7 @@ const Contact = () => {
                         <motion.textarea
                           name="message"
                           rows="5"
-                          placeholder="Write your message..."
+                          placeholder="Tell me about your shoot, dates, location ideas, and anything else I should know..."
                           className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray-300 bg-neutral-800"
                           required
                           variants={fadeInVariant}
@@ -271,11 +328,21 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    {/* Hidden field so EmailJS also receives the plan */}
+                    {/* Hidden fields for EmailJS */}
                     <input
                       type="hidden"
-                      name="selected_plan"
+                      name="selected_plan_id"
                       value={selectedPlan || ""}
+                    />
+                    <input
+                      type="hidden"
+                      name="selected_plan_label"
+                      value={selectedPlanLabel}
+                    />
+                    <input
+                      type="hidden"
+                      name="include_add_ons"
+                      value={addOnsSelected ? "yes" : "no"}
                     />
 
                     <div className="text-center">
@@ -296,6 +363,7 @@ const Contact = () => {
           </div>
         </motion.div>
       </motion.div>
+      <Footer />
     </section>
   );
 };

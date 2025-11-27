@@ -22,6 +22,5 @@ createRoot(document.getElementById("root")).render(
 
       <Route path="/gallery/:slug" element={<GalleryRouter />} />
     </Routes>
-    <Footer></Footer>
   </Router>
 );

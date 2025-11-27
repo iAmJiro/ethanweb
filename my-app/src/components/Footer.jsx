@@ -6,7 +6,9 @@ function Footer() {
       <footer className="w-full overflow-hidden bg-black text-white border-t border-neutral-800 py-2">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
           {/* Logo or Brand Name */}
-          <h3 className="text-xl font-semibold tracking-tight">Your Brand</h3>
+          <h3 className="text-xl font-semibold tracking-tight">
+            Ethan Holden Photography
+          </h3>
 
           {/* Instagram Icon */}
           <a
