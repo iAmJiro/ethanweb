@@ -14,7 +14,7 @@ function ImageGrid({ cards, onImageClick }) {
       {cards.map((card, idx) => (
         <div
           key={idx}
-          onClick={() => onImageClick(card.src)}
+          onClick={() => onImageClick(idx)}
           className="rounded-xl overflow-hidden border border-neutral-800 
                      hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
         >
@@ -30,7 +30,7 @@ function ImageGrid({ cards, onImageClick }) {
 }
 
 export default function Cars() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -45,6 +45,16 @@ export default function Cars() {
     { title: "The First Rule", src: nature6 },
   ];
 
+  const nextImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % cards.length);
+  };
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + cards.length) % cards.length);
+  };
+
   return (
     <>
       <motion.div
@@ -53,20 +63,23 @@ export default function Cars() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <ImageGrid cards={cards} onImageClick={setSelectedImage} />
+        <ImageGrid
+          cards={cards}
+          onImageClick={(index) => setSelectedIndex(index)}
+        />
       </motion.div>
 
-      {/* FULLSCREEN IMAGE MODAL */}
-      {selectedImage && (
+      {/* FULLSCREEN MODAL */}
+      {selectedIndex !== null && (
         <motion.div
           className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[999]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setSelectedIndex(null)}
         >
           <motion.img
-            src={selectedImage}
+            key={selectedIndex}
+            src={cards[selectedIndex].src}
             alt="Preview"
             className="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl object-contain"
             initial={{ scale: 0.85, opacity: 0 }}
@@ -77,9 +90,28 @@ export default function Cars() {
           {/* Close Button */}
           <button
             className="absolute top-6 right-6 text-white text-4xl font-light"
-            onClick={() => setSelectedImage(null)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedIndex(null);
+            }}
           >
             ×
+          </button>
+
+          {/* LEFT ARROW */}
+          <button
+            className="absolute left-6 text-white text-5xl font-light px-2"
+            onClick={prevImage}
+          >
+            ‹
+          </button>
+
+          {/* RIGHT ARROW */}
+          <button
+            className="absolute right-6 text-white text-5xl font-light px-2"
+            onClick={nextImage}
+          >
+            ›
           </button>
         </motion.div>
       )}
