@@ -159,12 +159,9 @@ const Contact = () => {
                   </div>
                   <div className="ml-4 mb-4">
                     <h3 className="mb-2 text-lg font-medium leading-6 text-white">
-                      Our Address
+                      Our Location
                     </h3>
-                    <p className="text-slate-400">
-                      ethans company address here hehe
-                    </p>
-                    <p className="text-slate-400">lumsden school</p>
+                    <p className="text-slate-400">Lumsden, New Zealand</p>
                   </div>
                 </motion.li>
 
@@ -189,7 +186,7 @@ const Contact = () => {
                     </h3>
                     <p className="text-slate-400">Mobile: 027-393-6804</p>
                     <p className="text-slate-400">
-                      Email: eghconstructionltd@gmail.com
+                      Email: ethanholdenphotography@gmail.com
                     </p>
                   </div>
                 </motion.li>

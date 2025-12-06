@@ -12,12 +12,14 @@ export function BoxAboutus() {
         title="Who am I?"
         description="I’m Ethan! I’ve been an avid photographer for about 3-4 years now, it started out as just a hobby really, but as I grew more confident and more focused in my work it began to become an obsession"
       />
+
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={<Settings className="h-4 w-4 text-white dark:text-neutral-400" />}
         title="My instruments?"
         description={`Cameras:\nPanasonic LUMIX DC-FZ80 | Nikon D300\nDrone: DJI Mini 2 SE`}
       />
+
       <GridItem
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
         icon={<Lock className="h-4 w-4 text-white dark:text-neutral-400" />}
@@ -25,18 +27,6 @@ export function BoxAboutus() {
         description="I finally started to understand the beauty behind the lens, that it really is easy to do and that anyone can point and click a camera, but it’s capturing emotion, raw feelings and creating that something special and making it immortal. That’s the art.
           So join me on my journey as I join the realm of professional photography, book your next shoot with Ethan Holden Photography! Hope to see you very soon 🙂
         "
-      />
-      <GridItem
-        area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-        icon={<Sparkles className="h-4 w-4 text-white dark:text-neutral-400" />}
-        title="How am I?"
-        description="Lorem ipsum right here or something like that, I'm too lazy to get one from the internet"
-      />
-      <GridItem
-        area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-        icon={<Search className="h-4 w-4 text-white dark:text-neutral-400" />}
-        title="When am I?"
-        description="Lorem ipsum right here or something like that, I'm too lazy to get one from the internet"
       />
     </ul>
   );
