@@ -20,18 +20,18 @@ export function DraggableCardDemo() {
       image: nature1,
       className: "absolute top-40 left-[25%] rotate-[-7deg]",
     },
-    {
-      title: "Portrait",
-      image:
-        "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3",
-      className: "absolute top-5 left-[40%] rotate-[8deg]",
-    },
-    {
-      title: "Japan",
-      image:
-        "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3",
-      className: "absolute top-32 left-[55%] rotate-[10deg]",
-    },
+    // {
+    //   title: "Portrait",
+    //   image:
+    //     "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3",
+    //   className: "absolute top-5 left-[40%] rotate-[8deg]",
+    // },
+    // {
+    //   title: "Japan",
+    //   image:
+    //     "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3",
+    //   className: "absolute top-32 left-[55%] rotate-[10deg]",
+    // },
     // {
     //   title: "Norway",
     //   image:
