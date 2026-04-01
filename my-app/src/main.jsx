@@ -18,9 +18,9 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/rates" element={<Rates />} />
+      {/* <Route path="/rates" element={<Rates />} /> */}
 
       <Route path="/gallery/:slug" element={<GalleryRouter />} />
     </Routes>
-  </Router>
+  </Router>,
 );

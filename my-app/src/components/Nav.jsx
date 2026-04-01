@@ -16,7 +16,7 @@ import {
 
 const navItems = [
   { name: "My Work", link: "/" },
-  { name: "Rates", link: "/rates" },
+  // { name: "Rates", link: "/rates" },
   { name: "Contact us", link: "/contact" },
 ];
 
