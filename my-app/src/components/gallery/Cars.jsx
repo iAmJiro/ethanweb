@@ -16,6 +16,8 @@ import car13 from "../../img/car13.jpg";
 import car14 from "../../img/car14.jpg";
 import car15 from "../../img/car15.jpg";
 import car16 from "../../img/car16.jpg";
+import car17 from "../../img/car17.jpg";
+import car18 from "../../img/car18.jpg";
 
 function ImageGrid({ cards, onImageClick }) {
   return (
@@ -61,6 +63,8 @@ export default function Cars() {
     { title: "The First Rule", src: car14 },
     { title: "The First Rule", src: car15 },
     { title: "The First Rule", src: car16 },
+    { title: "The First Rule", src: car17 },
+    { title: "The First Rule", src: car18 },
   ];
 
   const nextImage = (e) => {
