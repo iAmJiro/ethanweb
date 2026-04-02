@@ -47,10 +47,10 @@ export default function Cars() {
 
   const cards = [
     { title: "Forest Adventure", src: car2 },
-    { title: "Valley of life", src: car3 },
+    // { title: "Valley of life", src: car3 },
     { title: "Sala behta hi jayega", src: car4 },
     { title: "Camping is for pros", src: car5 },
-    { title: "The road not taken", src: car6 },
+    // { title: "The road not taken", src: car6 },
     { title: "The First Rule", src: car7 },
     { title: "The First Rule", src: car8 },
     { title: "The First Rule", src: car9 },
