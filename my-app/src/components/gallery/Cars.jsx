@@ -6,6 +6,16 @@ import car3 from "../../img/car3.jpg";
 import car4 from "../../img/car4.jpg";
 import car5 from "../../img/car5.jpg";
 import car6 from "../../img/car6.jpg";
+import car7 from "../../img/car7.jpg";
+import car8 from "../../img/car8.jpg";
+import car9 from "../../img/car9.jpg";
+import car10 from "../../img/car10.jpg";
+import car11 from "../../img/car11.jpg";
+import car12 from "../../img/car12.jpg";
+import car13 from "../../img/car13.jpg";
+import car14 from "../../img/car14.jpg";
+import car15 from "../../img/car15.jpg";
+import car16 from "../../img/car16.jpg";
 
 function ImageGrid({ cards, onImageClick }) {
   return (
@@ -41,7 +51,16 @@ export default function Cars() {
     { title: "Sala behta hi jayega", src: car4 },
     { title: "Camping is for pros", src: car5 },
     { title: "The road not taken", src: car6 },
-    { title: "The First Rule", src: car6 },
+    { title: "The First Rule", src: car7 },
+    { title: "The First Rule", src: car8 },
+    { title: "The First Rule", src: car9 },
+    { title: "The First Rule", src: car10 },
+    { title: "The First Rule", src: car11 },
+    { title: "The First Rule", src: car12 },
+    { title: "The First Rule", src: car13 },
+    { title: "The First Rule", src: car14 },
+    { title: "The First Rule", src: car15 },
+    { title: "The First Rule", src: car16 },
   ];
 
   const nextImage = (e) => {
