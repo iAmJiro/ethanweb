@@ -78,7 +78,7 @@ const Contact = () => {
         "service_hyexll9",
         "template_yglvh78",
         form.current,
-        "byMpOZOmxO-zU25xa"
+        "byMpOZOmxO-zU25xa",
       )
       .then(() => {
         setIsSubmitted(true);
@@ -161,7 +161,7 @@ const Contact = () => {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-white">
                       Our Location
                     </h3>
-                    <p className="text-slate-400">Lumsden, New Zealand</p>
+                    <p className="text-slate-400">Invercargill, New Zealand</p>
                   </div>
                 </motion.li>
 
@@ -273,7 +273,7 @@ const Contact = () => {
                           className="mt-4 w-full"
                           variants={fadeInVariant}
                         >
-                          <p className="mb-3 text-sm font-medium text-slate-300">
+                          {/* <p className="mb-3 text-sm font-medium text-slate-300">
                             Which package are you interested in?
                           </p>
 
@@ -304,9 +304,9 @@ const Contact = () => {
                                   type="button"
                                   onClick={() => handlePlanClick(option.id)}
                                   className={`
-        w-full rounded-md border px-4 py-3 text-sm text-center transition-all duration-200
-        ${stateClasses}
-      `}
+                                    w-full rounded-md border px-4 py-3 text-sm text-center transition-all duration-200
+                                    ${stateClasses}
+                                  `}
                                   whileHover={{ scale: 1.03 }}
                                   whileTap={{ scale: 0.97 }}
                                 >
@@ -314,11 +314,12 @@ const Contact = () => {
                                 </motion.button>
                               );
                             })}
-                          </div>
+                          </div> */}
 
                           <p className="mt-2 text-xs text-slate-400">
-                            Not sure yet? Pick the closest option and add more
-                            detail in your message below.
+                            Keen to share some details? Add some notes below
+                            about your shoot, location ideas, dates, or anything
+                            else you think I should know! (Optional but helpful)
                           </p>
                         </motion.div>
                       </div>

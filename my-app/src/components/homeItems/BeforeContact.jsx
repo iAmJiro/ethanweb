@@ -11,14 +11,14 @@ import {
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import car14 from "../../img/car14.jpg";
+import car15 from "../../img/car15.jpg";
+import car16 from "../../img/car16.jpg";
+import car17 from "../../img/car17.jpg";
+import car18 from "../../img/car18.jpg";
+
 export function BeforeContact() {
-  const images = [
-    "https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1554931670-4ebfabf6e7a9?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  ];
+  const images = [car14, car15, car16, car17, car18];
 
   return (
     <div className="py-1 flex items-center justify-center">
@@ -51,7 +51,7 @@ export function BeforeContact() {
                 >
                   <img
                     src={image}
-                    alt="bali images"
+                    alt={`Portfolio car ${idx + 1}`} // More accurate description
                     width="500"
                     height="500"
                     className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0"
@@ -61,7 +61,7 @@ export function BeforeContact() {
             </div>
 
             {/* Features List */}
-            <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto">
+            <div className="py-10 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 max-w-md mx-auto px-4">
               <Feature icon={<PlaneIcon />} text="5,000+ shots captured" />
               <Feature icon={<ElevatorIcon />} text="12 curated galleries" />
               <Feature
@@ -112,11 +112,11 @@ const BookNowButton = () => {
 
 // Reusable Feature component to keep the JSX clean
 const Feature = ({ icon, text }) => (
-  <div className="flex items-center justify-center">
-    <div className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4">
+  <div className="flex items-center space-x-3">
+    <div className="flex-shrink-0 text-neutral-700 dark:text-neutral-300 h-5 w-5">
       {icon}
     </div>
-    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+    <span className="text-neutral-700 dark:text-neutral-300 text-sm font-medium whitespace-nowrap">
       {text}
     </span>
   </div>
