@@ -62,8 +62,8 @@ export function BeforeContact() {
 
             {/* Features List */}
             <div className="py-10 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 max-w-md mx-auto px-4">
-              <Feature icon={<PlaneIcon />} text="5,000+ shots captured" />
-              <Feature icon={<ElevatorIcon />} text="12 curated galleries" />
+              {/* <Feature icon={<PlaneIcon />} text="5,000+ shots captured" />
+              <Feature icon={<ElevatorIcon />} text="12 curated galleries" /> */}
               <Feature
                 icon={<VacationIcon />}
                 text="Client-focused direction"
