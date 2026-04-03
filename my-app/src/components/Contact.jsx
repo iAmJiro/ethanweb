@@ -184,7 +184,7 @@ const Contact = () => {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-white">
                       Contact
                     </h3>
-                    <p className="text-slate-400">Mobile: 027-393-6804</p>
+                    {/* <p className="text-slate-400">Mobile: 027-393-6804</p> */}
                     <p className="text-slate-400">
                       Email: ethanholdenphotography@gmail.com
                     </p>
