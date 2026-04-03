@@ -64,13 +64,10 @@ export function BeforeContact() {
             <div className="py-10 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 max-w-md mx-auto px-4">
               {/* <Feature icon={<PlaneIcon />} text="5,000+ shots captured" />
               <Feature icon={<ElevatorIcon />} text="12 curated galleries" /> */}
-              <Feature
-                icon={<VacationIcon />}
-                text="Client-focused direction"
-              />
-              <Feature icon={<FoodIcon />} text="5 years behind the lens" />
-              <Feature icon={<MicIcon />} text="Easy communication" />
-              <Feature icon={<ParachuteIcon />} text="Sharp detail edits" />
+              <Feature icon={<BulletIcon />} text="Client-focused direction" />
+              <Feature icon={<BulletIcon />} text="5 years behind the lens" />
+              <Feature icon={<BulletIcon />} text="Easy communication" />
+              <Feature icon={<BulletIcon />} text="Sharp detail edits" />
             </div>
           </ModalContent>
 
@@ -222,4 +219,7 @@ const ParachuteIcon = () => (
     <path d="M2 12l10 10l-3.5 -10" />
     <path d="M15.5 12l-3.5 10l10 -10" />
   </svg>
+);
+const BulletIcon = () => (
+  <div className="h-1.5 w-1.5 rounded-full bg-black dark:bg-neutral-500 mt-2" />
 );
